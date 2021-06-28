@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./stylesheets/reset.css" />
+    <link rel="stylesheet" href="./stylesheets/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/7ef86841ce.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Asap+Condensed:wght@400;500;600;700&family=Pathway+Gothic+One&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"
+      integrity="sha512-2fk3Q4NXPYAqIha0glLZ2nluueK43aNoxvijPf53+DgL7UW9mkN+uXc1aEmnZdkkZVvtJZltpRt+JqTWc3TS3Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="../src/wavify.js"></script>
+    <script src="../src/jquery.wavify.js"></script>
+    <title>Deep Sea Dive</title>
+  </head>
+  <body>
+    <div class="air-wrapper">
+      <div class="header-container">
+        <h1>DEEP SEA DIVE</h1>
+        <p>
+          Scroll to the bottom of the ocean to find fascinating creatures. Many
+          deep sea creatures are equipped with bioluminescence — the ability to
+          light up. See if you can find all 12! (Hint: they'll glow when you
+          hover over them)
+        </p>
+        <span class="gh-icon" style="font-size: 2em">
+          <a href="https://github.com/juniprs/Deep-Sea-Dive"
+            ><i class="fab fa-github"></i
+          ></a>
+        </span>
+        <span class="li-icon" style="font-size: 2em">
+          <a href="https://www.linkedin.com/in/jennifer-tran-05a144215/"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </span>
+        <span onClick="togglePlay()" class="audio-icon" style="font-size: 2em">
+          <i class="fas fa-volume-up"></i>
+        </span>
+        <audio
+          id="audio"
+          src="./assets/audio/sea-sounds-2.1.mp3"
+          loop="loop"
+        ></audio>
+      </div>
+      <svg
+        width="100%"
+        height="100%"
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs></defs>
+        <path id="myID" d="" />
+      </svg>
+    </div>
+    <div class="sea-wrapper">
+      <!-- <div id="sm-particles"></div> -->
+      <!-- <div id="md-particles"></div> -->
+      <!-- <div id="lrg-particles"></div> -->
+      <div class="sunlight-zone" id="sunlight-zone">
+        <h2>Sunlight Zone (0m)</h2>
+        <div>
+          <img
+            src="./assets/svgs/clown-fish.svg"
+            alt="0-12m, 4in"
+            width="80px"
+          />
+          <span>CLOWNFISH</span>
+          <!-- <p>All clownfish are born male. When the dominant female dies, the dominant male will turn itself into a female to replace her.</p> -->
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/olive-flounder.svg"
+            alt="0-12m, 41in"
+            width="410px"
+          />
+          <span>OLIVE FLOUNDER</span>
+          <p>
+            Born looking like any typical fish until they go through
+            metamorphosis, shifting their features to one side of their body.
+          </p>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/oval-squid.svg"
+            alt="0-18m, 8in"
+            width="160px"
+          />
+          <span>OVAL SQUID</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/leafy-sea-dragon.svg"
+            alt="0-30m, 12in"
+            width="240px"
+          />
+          <span>LEAFY SEA DRAGON</span>
+        </div>
+        <div>
+          <img src="./assets/svgs/butterfly-fish.svg" alt="0-30m, 7in"
+          width=140px" />
+          <span>BUTTERFLYFISH</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/blue-ringed-octo2.svg"
+            alt="0-50m, 6in"
+            width="120px"
+          />
+          <span>BLUE-RINGED OCTOPUS</span>
+          <p>
+            Small but deadly — has enough venom to kill 26 humans within
+            minutes.
+          </p>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/fried-egg-jelly.svg"
+            alt="0-50m, 24in"
+            width="240px"
+          />
+          <span>FRIED EGG JELLYFISH</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/red-snapper.svg"
+            alt="20-50m, 40in"
+            width="400px"
+          />
+          <span>RED SNAPPER</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/zebra-turkeyfish.svg"
+            alt="0-80m, 12in"
+            width="240px"
+          />
+          <span>ZEBRA TURKEYFISH</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/flamboyant-cuttlefish.svg"
+            alt="3-85m, 3in"
+            width="60px"
+          />
+          <span>FLAMBOYANT CUTTLEFISH</span>
+        </div>
+        <div>
+          <img src="./assets/svgs/sea-star.svg" alt="0-6000m, 40in" />
+          <span>SEA STAR</span>
+          <p>Sea stars can have up to 40 regenerative arms!</p>
+        </div>
+        <div>
+          <img src="./assets/svgs/hammerhead-shark.svg" alt="80-300m, 13ft"
+          width=1000px" />
+          <span>HAMMERHEAD SHARK</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/sea-bass.svg"
+            alt="20-180m, 16in"
+            width="160px"
+          />
+          <span>SEA BASS</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/sea-turtle.svg"
+            alt="0-200m, 3ft"
+            width="360px"
+          />
+          <span>GREEN SEA TURTLE</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/sunfish.svg"
+            alt="50-200m, 10ft"
+            width="500px"
+          />
+          <span>SUNFISH</span>
+          <p>
+            Considered one of the most prolific vertebrates — a female sunfish
+            can lay up to 300,000,000 eggs at one time!
+          </p>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/anchovies.svg"
+            alt="50-400m, 12in"
+            width="240px"
+          />
+          <span>ANCHOVIES</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/orcas.svg"
+            alt="100-250m, 20ft"
+            width="1000px"
+          />
+          <span>ORCAS</span>
+          <p>
+            Orcas must sleep with one eye open and half a brain conscious in order to
+            actively breathe.
+          </p>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/sea-urchin.svg"
+            alt="0-5000m, 2in"
+            width="250px"
+          />
+          <span>SEA URCHIN</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/horse-mackerel.svg"
+            alt="100-1000m, 8in"
+            width=""
+          />
+          <span>HORSE MACKEREL</span>
+        </div>
+      </div>
+      <div class="twilight-zone">
+        <h2>Twilight Zone (200m)</h2>
+        <div>
+          <img src="./assets/svgs/manta-ray.svg" alt="10-450m, 20ft" width="" />
+          <span>MANTA RAY</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/tomopteris-plankton.svg"
+            alt="200-300m, 1in"
+            width=""
+            id="bioluminescent"
+          />
+          <span>TOMOPTERIS PLANKTON</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/sea-angel.svg"
+            alt="0-500m, 2in"
+            width=""
+            id="bioluminescent"
+          />
+          <span>SEA ANGEL</span>
+          <p>
+            Shell-less sea snails that propel themselves by flapping their
+            wing-like feet.
+          </p>
+        </div>
+        <div>
+          <img src="./assets/svgs/krill.svg" alt="100-600m" />
+          <span>KRILL</span>
+        </div>
+        <div>
+          <img src="./assets/svgs/giant-squid.svg" alt="300-600m" />
+          <span>GIANT SQUID</span>
+          <p>
+            Although they are the largest squid discovered (max 13m long!),
+            giant squids are rarely seen.
+          </p>
+        </div>
+        <div>
+          <img src="./assets/svgs/japanese-spider-crabs.svg" alt="50-600m" />
+          <span>JAPANESE SPIDER CRAB</span>
+          <p>Has the largest leg span of any arthropod (max 3.7m long!)</p>
+        </div>
+        <div>
+          <img src="./assets/svgs/nautilus.svg" alt="5-700m" />
+          <span>NAUTILUS</span>
+          <p>A type of mollusk also known as a "living fossil".</p>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/lanternfish.svg"
+            alt="360-900m"
+            id="bioluminescent"
+          />
+          <span>LANTERNFISH</span>
+          <p>These fish account for over 60% of all deep-sea biomass!</p>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/strawberry-squid.svg"
+            alt="0-1000m"
+            id="bioluminescent"
+          />
+          <span>STRAWBERRY SQUID</span>
+          <p>
+            Can simultaneously look up, down, and sideways as it jets through
+            the ocean.
+          </p>
+        </div>
+        <div>
+          <img src="./assets/svgs/bluefin-tuna.svg" alt="1000m" />
+          <span>BLUEFIN TUNA</span>
+        </div>
+        <div>
+          <img src="./assets/svgs/coelacanth.svg" alt="700m" />
+          <span>COELACANTH</span>
+          <p>
+            Coelacanths (seel-a-canth) were thought to have gone extinct 65
+            million years ago.
+          </p>
+        </div>
+        <div>
+          <img src="./assets/svgs/oarfish.svg" alt="650-3000m" />
+          <span>OARFISH</span>
+        </div>
+        <div>
+          <img src="./assets/svgs/whale-shark.svg" alt="0-1900m" />
+          <span>WHALE SHARK</span>
+          <p>
+            Gentle giants — lacking teeth, whale sharks filter feed on plankton.
+          </p>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/siphonophore.svg"
+            alt="700-1000m"
+            id="bioluminescent"
+          />
+          <span>SIPHONOPHORE</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/vampire-squid.svg"
+            alt="600-1200m"
+            id="bioluminescent"
+          />
+          <span>VAMPIRE SQUID</span>
+          <p>
+            Unlike any other squids, vampire squids feed on marine snow —
+            nutritious organic material that rain down from above.
+          </p>
+        </div>
+      </div>
+      <div class="midnight-zone">
+        <h2>Midnight Zone (1,000m)</h2>
+        <div>
+          <img src="./assets/svgs/sperm-whale.svg" alt="1000-2250m" />
+          <span>SPERM WHALE</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/angler-fish.svg"
+            alt="1000-2000m"
+            id="bioluminescent"
+          />
+          <span>ANGLERFISH</span>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/pelican-eel.svg"
+            alt="500-3000m"
+            id="bioluminescent"
+          />
+          <span>PELICAN EEL</span>
+          <p>Can unhinge its jaw to swallow animals much larger than itself!</p>
+        </div>
+        <div>
+          <img src="./assets/svgs/tubeworms.svg" alt="1900-3600m" />
+          <span>TUBEWORMS</span>
+        </div>
+        <div>
+          <img src="./assets/svgs/giant-isopod.svg" alt="170-2100m" />
+          <span>GIANT ISOPOD</span>
+          <p>The largest giant isopod recorded was 2.5ft long.</p>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/barreleye.svg"
+            alt="1000m, 4in"
+            id="bioluminescent"
+          />
+          <span>BARRELEYE</span>
+          <p>
+            Has a transparent head containing clear fluids and its eyes. Can
+            only look forward and upward.
+          </p>
+        </div>
+        <div>
+          <img
+            src="./assets/svgs/alarm-jelly.svg"
+            alt="1000-4000m"
+            id="bioluminescent"
+          />
+          <span>ALARM JELLY</span>
+        </div>
+      </div>
+      <div class="the-abyss">
+        <h2>The Abyss (4,000m)</h2>
+        <div>
+          <img src="./assets/svgs/dumbo-octo.svg" alt="4000m" />
+          <span>DUMBO OCTOPUS</span>
+          <p>
+            Named after the elephant — has ear-like fins that are used for
+            steering.
+          </p>
+        </div>
+        <div>
+          <img src="./assets/svgs/sea-pig.svg" alt="1200-4800m, 5in" />
+          <span>SEA PIG</span>
+          <p>
+            A sea cucumber with legs. Sometimes baby crabs hitch a ride on them.
+          </p>
+        </div>
+      </div>
+      <div class="trenches">
+        <h2>Trenches (6,000m)</h2>
+        <div>
+          <img
+            src="./assets/svgs/comb-jelly.svg"
+            alt="7200m"
+            id="bioluminescent"
+          />
+          <span>COMB JELLY</span>
+          <p>Surprisingly, not related to jellyfish! They don't sting.</p>
+          id="bioluminescent" />
+        </div>
+        <div>
+          <img src="./assets/svgs/bristle-worm.svg" alt="">
+          <span>BRISTLE WORM</span>
+          <p>Breaks apart easily when handled, but can regenerate.</p>
+        </div>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
